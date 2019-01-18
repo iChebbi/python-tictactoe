@@ -7,7 +7,7 @@ if sys.version_info[0] < 3:  # Specific import for python 2 and 3 compatibility
 else:
     from tkinter import Tk, Button, font
 
-    Font = font.Font  # remapping font func for compatibility
+    Font = font.Font
 
 
 class GUI:
