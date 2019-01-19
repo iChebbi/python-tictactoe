@@ -1,7 +1,7 @@
-import sys
+from sys import version_info
 from Board import Board
 
-if sys.version_info[0] < 3:  # Specific import for python 2 and 3 compatibility
+if version_info[0] < 3:  # Specific import for python 2 and 3 compatibility
     from Tkinter import Tk, Button
     from tkFont import Font
 else:

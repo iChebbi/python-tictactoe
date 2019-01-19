@@ -1,5 +1,7 @@
 from copy import deepcopy
 
+infinity = float("inf")
+
 
 class Board:
     def __init__(self):
@@ -19,7 +21,7 @@ class Board:
         return board
 
     def best_move(self):
-        return self.minimax(True)[1]
+        return self.minimax(True)[1]  # get best move case coordinates
 
     def minimax(self, is_player):
 
@@ -29,7 +31,7 @@ class Board:
             return 0, None
 
         if is_player:
-            best = -2, None  # start with min value and maximize it
+            best = -infinity, None  # start with min value and maximize it
             for x, y in self.fields:
                 if self.fields[x, y] == '':  # continue executing minimax on empty cases
                     value = self.move(x, y).minimax(not is_player)[0]
@@ -37,7 +39,7 @@ class Board:
                         best = (value, (x, y))
             return best
         else:
-            best = +2, None  # start with max value and minimize it
+            best = +infinity, None  # start with max value and minimize it
             for x, y in self.fields:
                 if self.fields[x, y] == '':  # continue executing minimax on empty cases
                     value = self.move(x, y).minimax(not is_player)[0]
